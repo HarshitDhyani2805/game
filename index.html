@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f4efe5">
+  <title>Hangman - Word Workshop</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="hangman.css">
+  <script src="hangman.js" defer></script>
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="wordmark" href="index.html" aria-label="Word Workshop home">
+        <span class="wordmark-icon" aria-hidden="true">W</span>
+        <span>WORD<span class="wordmark-light">WORKSHOP</span></span>
+      </a>
+      <span class="edition">THE LETTER GAME <span>NO. 01</span></span>
+    </header>
+
+    <section class="game-layout" aria-labelledby="game-title">
+      <div class="intro">
+        <p class="eyebrow"><span class="eyebrow-dot"></span> A LITTLE WORD CHALLENGE</p>
+        <h1 id="game-title">Mind your<br><span>letters.</span></h1>
+        <p class="intro-copy">Find the hidden word one letter at a time. You have six misses before the sketch is complete.</p>
+        <div class="category-row"><span class="category-label">CATEGORY</span><span id="category" class="category-value">Nature</span></div>
+      </div>
+
+      <div class="play-area">
+        <div class="game-topline">
+          <div class="round-label"><span class="round-number">01</span><span>YOUR ROUND</span></div>
+          <button class="icon-button" id="new-game" type="button" aria-label="Start a new game" title="New game">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 7v5h-5M4.9 16a8 8 0 0 0 13.4 2L20 16M4 12a8 8 0 0 1 13.4-6L20 8"/></svg>
+          </button>
+        </div>
+
+        <div class="stage-row">
+          <div class="drawing" aria-label="Hangman drawing">
+            <svg class="hangman-svg" viewBox="0 0 220 220" role="img" aria-labelledby="drawing-title">
+              <title id="drawing-title">Hangman drawing showing your remaining chances</title>
+              <path class="gallows" d="M28 198h164M61 198V26h93v25M61 57l29-31" />
+              <circle class="body-part" data-part="head" cx="154" cy="71" r="17" />
+              <path class="body-part" data-part="body" d="M154 88v48" />
+              <path class="body-part" data-part="left-arm" d="m154 101-25 23" />
+              <path class="body-part" data-part="right-arm" d="m154 101 25 23" />
+              <path class="body-part" data-part="left-leg" d="m154 136-23 34" />
+              <path class="body-part" data-part="right-leg" d="m154 136 23 34" />
+            </svg>
+            <div class="misses"><span id="miss-count">0</span><span class="miss-divider">/</span>6 MISSES</div>
+          </div>
+          <div class="word-panel">
+            <p class="word-label">THE MYSTERY WORD</p>
+            <div class="word" id="word" aria-label="Hidden word"></div>
+            <p class="game-message" id="message" aria-live="polite">Choose a letter to begin.</p>
+          </div>
+        </div>
+
+        <div class="keyboard-wrap">
+          <div class="keyboard-heading"><span>YOUR LETTERS</span><span>TYPE OR TAP</span></div>
+          <div class="keyboard" id="keyboard" aria-label="Letter keyboard"></div>
+        </div>
+        <button class="play-again" id="play-again" type="button" hidden>Play again <span aria-hidden="true">&#8594;</span></button>
+      </div>
+    </section>
+    <footer class="footer"><span>TAKE A GUESS. MAKE IT COUNT.</span><span>BUILT FOR CURIOUS MINDS</span></footer>
+  </main>
+</body>
+</html>
